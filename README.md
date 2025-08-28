@@ -1,45 +1,45 @@
-# Gerenciador de Tarefas - React + ASP.NET Core
+# Task Manager - React + ASP.NET Core
 
-Aplicação web completa para gerenciamento de tarefas diárias (To-Do List), desenvolvida como uma SPA com **React** no frontend e **ASP.NET Core** no backend. Ideal para praticar integração entre tecnologias modernas de frontend e backend, utilizando APIs REST e manipulação de dados em tempo real.
-
----
-
-## 🧠 Funcionalidades
-
-* Adicionar tarefas com título e descrição.
-* Listar todas as tarefas existentes.
-* (Futuras implementações): Marcar como concluída, editar e excluir tarefas.
+A complete web application for managing daily tasks (To-Do List), developed as a SPA with **React** on the frontend and **ASP.NET Core** on the backend. Ideal for practicing integration between modern frontend and backend technologies, using REST APIs and real-time data manipulation.
 
 ---
 
-## 🚧 Tecnologias Utilizadas
+## 🧠 Features
+
+* Add tasks with a title and description.
+* List all existing tasks.
+* (Future implementations): Mark as complete, edit, and delete tasks.
+
+---
+
+## 🚧 Technologies Used
 
 ### Frontend (React)
 
-* **React 17.0.2** – Interface de usuário declarativa e reativa.
-* **React Router DOM 5.2.0** – Navegação SPA.
-* **Reactstrap 8.9.0 + Bootstrap 5.1.0** – Componentes UI responsivos.
-* **http-proxy-middleware 0.19.1** – Proxy de requisições para o backend.
+* **React 17.0.2** – Declarative and reactive user interface.
+* **React Router DOM 5.2.0** – SPA navigation.
+* **Reactstrap 8.9.0 + Bootstrap 5.1.0** – Responsive UI components.
+* **http-proxy-middleware 0.19.1** – Request proxy to the backend.
 
 ### Backend (ASP.NET Core)
 
-* **ASP.NET Core** – Construção de APIs REST seguras e escaláveis.
-* **C#** – Lógica de aplicação.
-* **(Opcional) Entity Framework Core** – Abstração de banco de dados (ORM).
+* **ASP.NET Core** – Building secure and scalable REST APIs.
+* **C#** – Application logic.
+* **(Optional) Entity Framework Core** – Database abstraction (ORM).
 
-### Ferramentas
+### Tools
 
-* **Node.js** – Execução e gerenciamento do frontend.
-* **.NET SDK** – Execução do backend em C#.
-* **npm** – Gerenciador de pacotes JavaScript.
+* **Node.js** – Frontend runtime and management.
+* **.NET SDK** – C# backend runtime.
+* **npm** – JavaScript package manager.
 
 ---
 
-## 📦 Estrutura do Projeto
+## 📦 Project Structure
 
 ```plaintext
-GerenciadorTarefas/
-├── ClientApp/               # Projeto React (frontend)
+TaskManager/
+├── ClientApp/              # React Project (frontend)
 │   ├── public/
 │   ├── src/
 │   │   ├── components/
@@ -47,29 +47,29 @@ GerenciadorTarefas/
 │   │   ├── index.js
 │   │   └── setupProxy.js
 │   └── package.json
-├── Controllers/             # Endpoints da API (backend)
-│   └── TarefasController.cs
-├── Data/                    # Acesso a dados (Entity Framework)
-├── Models/                  # Classes de modelo
+├── Controllers/            # API Endpoints (backend)
+│   └── TasksController.cs
+├── Data/                   # Data Access (Entity Framework)
+├── Models/                 # Model classes
 ├── Properties/
-│   └── launchSettings.json  # Configuração de ambiente
-├── appsettings.json         # Configurações do projeto
-├── GerenciadorTarefas.csproj
+│   └── launchSettings.json # Environment configuration
+├── appsettings.json        # Project settings
+├── TaskManager.csproj
 └── ...
 ```
 
 ---
 
-## ▶️ Como Executar o Projeto
+## ▶️ How to Run the Project
 
-### ✅ Pré-requisitos
+### ✅ Prerequisites
 
-* **Node.js** (recomendado: versão LTS)
-* **.NET SDK** (compatível com ASP.NET Core)
+* **Node.js** (LTS version recommended)
+* **.NET SDK** (compatible with ASP.NET Core)
 
 ---
 
-### 1. Clonar o repositório
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/gvmzin/GerenciadorTarefas
@@ -78,25 +78,25 @@ cd GerenciadorTarefas
 
 ---
 
-### 2. Iniciar o Backend
+### 2. Start the Backend
 
 ```bash
 cd GerenciadorTarefas       # Certifique-se de estar na raiz do backend
 dotnet run
 ```
 
-> O backend estará disponível em algo como `https://localhost:7201`. Verifique a porta exata no arquivo `launchSettings.json`.
+> The backend will be available at an address like https://localhost:7201. Check the exact port in the launchSettings.json file.
 
 ---
 
-### 3. Iniciar o Frontend
+### 3. Start the Frontend
 
 ```bash
 cd ClientApp
 npm install
 ```
 
-#### Verifique o Proxy (`src/setupProxy.js`):
+#### Check the Proxy (src/setupProxy.js):
 
 ```js
 const proxy = require('http-proxy-middleware');
@@ -120,25 +120,24 @@ module.exports = function(app) {
 npm start
 ```
 
-> A aplicação React será iniciada em `http://localhost:3000`, já integrada ao backend.
+> The React application will start at http://localhost:3000, already integrated with the backend.
 
 ---
 
-## 🧠 Aprendizados Aplicados
+## 🧠 Key Learnings
 
-* Integração entre React e ASP.NET Core com proxy.
-* Consumo de APIs REST com Axios ou Fetch.
-* Organização em camadas: Controller, Model, Data.
-* Configuração de ambiente com `launchSettings.json` e `setupProxy.js`.
-
----
-
-## 🤝 Contribuição
-
-Contribuições são muito bem-vindas! Sinta-se à vontade para abrir uma *issue* ou *pull request* com melhorias ou correções.
+* Integration between React and ASP.NET Core using a proxy.
+* Consuming REST APIs with Axios or Fetch.
+* Layered architecture: Controller, Model, Data.
+* Environment configuration with launchSettings.json and setupProxy.js.
 
 ---
 
-## 📄 Licença
+## 🤝 Contributing
 
-Distribuído sob a licença MIT. Consulte o arquivo `LICENSE` para mais informações.
+Contributions are very welcome! Feel free to open an issue or pull request with improvements or fixes.
+---
+
+## 📄 License
+
+Distributed under the MIT License. See the LICENSE file for more information.
