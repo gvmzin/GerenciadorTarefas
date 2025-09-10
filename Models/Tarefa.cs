@@ -11,7 +11,7 @@ namespace GerenciadorTarefas.Models
         [StringLength(100)]
         public string Titulo { get; set; } = string.Empty;
 
-        public string? Descricao { get; set; }
+        public string Descricao { get; set; }
 
         public bool Concluida { get; set; } = false;
 
