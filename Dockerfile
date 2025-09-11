@@ -3,7 +3,9 @@ WORKDIR /src
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends nodejs npm
-RUN dotnet tool install --global dotnet-ef
+
+RUN dotnet tool install --global dotnet-ef --version 6.0.25
+
 COPY ["GerenciadorTarefas.csproj", "./"]
 RUN dotnet restore "GerenciadorTarefas.csproj"
 
