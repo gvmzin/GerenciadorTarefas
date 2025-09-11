@@ -1,11 +1,13 @@
-using GerenciadorTarefas.Data;
 using Microsoft.EntityFrameworkCore;
+using GerenciadorTarefas.Data;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(connectionString));
 var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
