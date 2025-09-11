@@ -9,10 +9,12 @@ using GerenciadorTarefas.Models;
 public class TarefasController : ControllerBase
 {
     private readonly AppDbContext _context;
+    private readonly IConfiguration _configuration;
 
-    public TarefasController(AppDbContext context)
+    public TarefasController(AppDbContext context, IConfiguration configuration)
     {
         _context = context;
+        _configuration = configuration;
     }
 
     // GET: api/Tarefas
@@ -96,5 +98,18 @@ public class TarefasController : ControllerBase
     private bool TarefaExists(int id)
     {
         return _context.Tarefas.Any(e => e.Id == id);
+    }
+
+    [HttpGet("debug-connection")]
+    public IActionResult DebugConnection()
+    {
+        var connectionString = _configuration.GetConnectionString("DefaultConnection");
+
+        if (string.IsNullOrEmpty(connectionString))
+        {
+            return Ok("ERRO: A string de conexão que a aplicação recebeu está VAZIA ou NULA!");
+        }
+
+        return Ok($"A string de conexão que a aplicação encontrou é: '{connectionString}'");
     }
 }
