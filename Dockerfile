@@ -3,7 +3,7 @@ WORKDIR /src
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends nodejs npm
-
+RUN dotnet tool install --global dotnet-ef
 COPY ["GerenciadorTarefas.csproj", "./"]
 RUN dotnet restore "GerenciadorTarefas.csproj"
 
