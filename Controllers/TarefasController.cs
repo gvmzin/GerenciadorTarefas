@@ -100,16 +100,31 @@ public class TarefasController : ControllerBase
         return _context.Tarefas.Any(e => e.Id == id);
     }
 
-    [HttpGet("debug-connection")]
-    public IActionResult DebugConnection()
+    [HttpGet("debug-environment")]
+    public IActionResult DebugEnvironment()
     {
+        var variables = System.Environment.GetEnvironmentVariables();
+        var result = new System.Text.StringBuilder();
+        result.AppendLine("--- VARIÁVEIS DE AMBIENTE DETECTADAS PELO .NET ---");
+
+        foreach (System.Collections.DictionaryEntry variable in variables)
+        {
+            result.AppendLine($"CHAVE: '{variable.Key}' | VALOR: '{variable.Value}'");
+        }
+
+        result.AppendLine("\n--- TESTE ESPECÍFICO DA LEITURA DA CONNECTION STRING ---");
         var connectionString = _configuration.GetConnectionString("DefaultConnection");
 
         if (string.IsNullOrEmpty(connectionString))
         {
-            return Ok("ERRO: A string de conexão que a aplicação recebeu está VAZIA ou NULA!");
+            result.AppendLine("RESULTADO: GetConnectionString(\"DefaultConnection\") RETORNOU VAZIO OU NULO.");
+        }
+        else
+        {
+            result.AppendLine($"RESULTADO: GetConnectionString(\"DefaultConnection\") retornou: '{connectionString}'");
         }
 
-        return Ok($"A string de conexão que a aplicação encontrou é: '{connectionString}'");
+        // Retorna o texto puro para ser fácil de ler no navegador
+        return Content(result.ToString(), "text/plain");
     }
 }
